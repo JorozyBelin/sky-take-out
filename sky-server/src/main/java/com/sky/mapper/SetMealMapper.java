@@ -34,14 +34,33 @@ public interface SetMealMapper {
     @AutoFill(value= OperationType.INSERT)
     @Insert("insert into setmeal(category_id, name, price, description, image,status,create_time,create_user,update_time,update_user) " +
             "values(#{categoryId},#{name},#{price},#{description},#{image},#{status},#{createTime},#{createUser},#{updateTime},#{updateUser})")
+
+    /**
+     * 插入套餐数据
+     * @param setmeal
+     */
     @Options(useGeneratedKeys=true,keyProperty="id")
     void insert(Setmeal setmeal);
 
+    /**
+     * 根据id查询套餐数据
+     * @param id
+     * @return
+     */
     @Select("select * from setmeal where id =#{id}")
     Setmeal getById(Long id);
 
+    /**
+     * 批量删除套餐
+     * @param ids
+     */
     void deleteBatch(List<Long> ids);
 
+    /**
+     * 修改套餐数据
+     * @param setmeal
+     * @return
+      */
     @AutoFill(value = OperationType.UPDATE)
     void update(Setmeal setmeal);
 

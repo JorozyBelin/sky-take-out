@@ -77,6 +77,6 @@ public interface OrderMapper {
      * @param localDateTime
      * @return
      */
-    @Select("select * from Orders where status=#{status} and order_time<#{localDateRime}")
+    @Select("select * from Orders where status=#{status} and order_time<#{localDateTime}")
     List<Orders> getByStatusAndOrderTimeOut(Integer status, LocalDateTime localDateTime);
 }

@@ -73,10 +73,10 @@ public interface OrderMapper {
     /**
      * 根据状态和下单时间查询订单
      *
-     * @param pendingPayment
+     * @param status
      * @param localDateTime
      * @return
      */
-    @Select("select * from Orders where status=#{status} and order_time=#{localDateRime}")
+    @Select("select * from Orders where status=#{status} and order_time<#{localDateRime}")
     List<Orders> getByStatusAndOrderTimeOut(Integer status, LocalDateTime localDateTime);
 }
